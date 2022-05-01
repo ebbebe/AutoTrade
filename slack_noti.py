@@ -9,6 +9,6 @@ def post_message(token, channel, text):
     )
     print(response)
  
-myToken = "xoxb-3476862373345-3466584837492-bAP0hea2RlXhM8lRcfLptPlM"
+myToken = "토큰 입력"
  
 post_message(myToken,"#noti","채팅 테스트22")
