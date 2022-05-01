@@ -1,5 +1,5 @@
 from pykiwoom.kiwoom import *
-
+print("실햄됨")
 kiwoom = Kiwoom()
 kiwoom.CommConnect(block=True)
 
