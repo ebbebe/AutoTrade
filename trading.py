@@ -93,6 +93,7 @@ buy()
 
 #일정 시간마다 test_fuction을 동작시키기
 #schedule.every(1).seconds.do(noti_hour)
+#TEST
 schedule.every(2).hours.do(noti_hour)
 schedule.every().day.at("17:55").do(login)
 schedule.every().day.at("17:55").do(buy)
