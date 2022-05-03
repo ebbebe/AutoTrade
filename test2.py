@@ -52,14 +52,14 @@ def alert():
 
 
     
-myToken = "xoxb-3476862373345-3466584837492-bAP0hea2RlXhM8lRcfLptPlM"
+myToken = ""
 
 
 # 로그인
 kiwoom = Kiwoom()
 kiwoom.CommConnect(block=True)
 print("로그인 완료")
-
+post_message(myToken, "#noti", "로그인 완료")
 
 # 조건식을 PC로 다운로드
 kiwoom.GetConditionLoad()
@@ -102,9 +102,8 @@ stock_account = accounts[0]
 
 #일정 시간마다 test_fuction을 동작시키기
 #schedule.every(1).seconds.do(noti_hour)
-schedule.every(1).hour.do(noti_hour)
+schedule.every(2).hours.do(noti_hour)
 schedule.every().day.at("17:55").do(alert)
-schedule.every().day.at("19:54").do(alert)
 schedule.every().day.at("18:00").do(exit)
 
 while True:
