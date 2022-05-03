@@ -18,7 +18,7 @@ def noti_hour():
 
 def exit():
     print("function exit")
-    post_message(myToken, "#noti", ("장마감으로 실행 종료"))
+    post_message(myToken, "#noti", ("장 마감 실행 종료"))
     sys.exit()
 
 
@@ -51,6 +51,7 @@ def buy():
         buy = kiwoom.SendOrder("시장가매수 테스트", "0101", stock_account, 1, codes[i], 1, 0, "03", "")
         buylist += (str(buy) + "\n")
     noti_buy = "매수 확인:\n" + buylist
+    print("매수 확인\n", buylist)
     post_message(myToken, "#noti", noti_buy)
 
 
@@ -93,9 +94,8 @@ buy()
 #일정 시간마다 test_fuction을 동작시키기
 #schedule.every(1).seconds.do(noti_hour)
 schedule.every(2).hours.do(noti_hour)
+schedule.every().day.at("17:55").do(login)
 schedule.every().day.at("17:55").do(buy)
-schedule.every().day.at("22:48").do(login)
-schedule.every().day.at("22:48").do(buy)
 schedule.every().day.at("18:00").do(exit)
 
 while True:
